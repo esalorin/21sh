@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/27 16:13:41 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/27 16:31:32 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,11 +49,11 @@ $(OBJ_DIR)/%.o:$(SRCS_DIR)/%.c
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -o $@ -c $<
 
 $(NAME) : $(OBJ_DIR) $(OBJ)
-	@echo "\\033[1;32mBuilding libft..\\033[0;39m"
+	@echo "\\033[1;33mBuilding libft..\\033[0;39m"
 	@make -C libft/
-	@echo "\\033[1;32mBuilding 21sh..\\033[0;39m"
+	@echo "\\033[1;33mBuilding 21sh..\\033[0;39m"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a -ltermcap
-	@echo "\\033[1;37mDONE\\033[0;39m"
+	@echo "\\033[1;32mDONE\\033[0;39m"
 	@echo "\n\\033[1;37mLaunch ./21sh\\033[0;39m"
 
 clean :
@@ -68,7 +68,10 @@ fclean : clean
 	@make fclean -C libft/
 
 sh : $(OBJ_DIR) $(OBJ)
+	@echo "\\033[1;33mBuilding project..\\033[0;39m"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a -ltermcap
+	@echo "\\033[1;32mDONE\\033[0;39m"
+	@echo "\n\\033[1;37mLaunch ./21sh\\033[0;39m"
 	@make clean
 
 re : fclean all
