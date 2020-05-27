@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 18:47:23 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/27 19:27:46 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 19:58:11 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	sh_validate_terminal(t_sh *sh)
 static void	sh_configure_term_settings(t_sh *sh)
 {
 	if (tcgetattr(sh->term_fd, &sh->original_term_mode) == -1)
-		sh_exit("tcgetattr: failed to get current state. Exiting..\n");
+		sh_exit("tcgetattr(): failed to get current state. Exiting..\n");
 	sh->current_term_mode = sh->original_term_mode;
 	sh->current_term_mode.c_lflag &= ~(IEXTEN);
 	sh->current_term_mode.c_lflag &= ~(ICANON | ECHO);
@@ -44,7 +44,7 @@ static void	sh_configure_term_settings(t_sh *sh)
 	sh->current_term_mode.c_cc[VMIN] = 1;
 	sh->current_term_mode.c_cc[VTIME] = 0;
 	if (tcsetattr(sh->term_fd, TCSANOW, &sh->current_term_mode) == -1)
-		sh_exit("tcsetattr: failed to make requested changes. Exiting..\n");
+		sh_exit("tcsetattr(): failed to make requested changes. Exiting..\n");
 }
 
 void		sh_init(t_sh *sh)

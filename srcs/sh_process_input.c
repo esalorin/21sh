@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 18:26:53 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/27 19:27:05 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 19:57:52 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	se_readkey(void)
 
 	key = 0;
 	if (read(STDIN_FILENO, &key, 4) == -1)
-		sh_exit("read: failed to read STDERR. Exiting..\n");
+		sh_exit("read(): failed to read STDIN. Exiting..\n");
 	return (key);
 }
 
@@ -28,10 +28,8 @@ static int	se_process_keypress(t_sh *sh)
 	{
 		if (sh->key == ENTER)
 			break ;
-		else if (sh->key == SPACE || sh->key == ASTERISK || sh->key == MINUS)
-			ft_printf("You pressed space, * or -\n");
-		else if (sh->key == DEL || sh->key == BSPACE || sh->key == ESC)
-			ft_printf("You pressed DEL, backspace or ESC\n");
+		else if (sh->key == DEL || sh->key == BSPACE)
+			ft_printf("You pressed DEL or backspace\n");
 		else if (sh->key == LEFT || sh->key == RIGHT || sh->key == UP || sh->key == DOWN)
 			ft_printf("You pressed one of the arrow keys\n");
 		else if (ft_isprint(sh->key))
