@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/27 18:39:52 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/27 19:18:07 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS :=	cd.c \
 		echo.c \
 		error.c \
 		quotes.c \
+		sh_init.c \
 		sh_exit.c \
 		execute.c \
 		builtin.c \

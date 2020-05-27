@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 18:47:11 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 19:15:53 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void		sh_loop(t_sh *sh)
 
 int			main(int ac, char **av, char **env)
 {
-	t_sh sh;
+	t_sh	sh;
 
 	if (ac && av[0])
 	{
-		sh_init(sh);
+		sh_init(&sh);
 		sh.env = ft_arraydup(env);
 		// update_shell_env(av[0], &sh.env);
 		sh_loop(&sh);
