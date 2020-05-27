@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   expansions.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 14:46:14 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 16:31:41 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/05/27 15:55:17 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 static char	*home(char *arg, char *home)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   quotes.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:15:46 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/25 16:14:00 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/05/27 15:55:24 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 char	*ft_rmescapes_inquotes(char *s, char c)
 {

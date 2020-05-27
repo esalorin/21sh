@@ -3,29 +3,58 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+         #
+#    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/02 16:57:19 by eenasalorin      ###   ########.fr        #
+#    Updated: 2020/05/27 16:05:43 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
+CFLAGS = -Wall -Wextra -Werror
+CC = gcc
 
-SRCS = srcs/main.c srcs/execute.c srcs/builtin.c srcs/cd.c srcs/echo.c srcs/error.c \
-srcs/split_args.c srcs/env.c srcs/quotes.c srcs/expansions.c
+INC_DIR := ./includes
+SRCS_DIR := ./srcs
+OBJ_DIR := ./obj
 
-OBJ = main.o execute.o builtin.o cd.o echo.o error.o split_args.o env.o quotes.o \
-expansions.o
+# SRCS = srcs/main.c srcs/execute.c srcs/builtin.c srcs/cd.c srcs/echo.c srcs/error.c \
+# srcs/split_args.c srcs/env.c srcs/quotes.c srcs/expansions.c
+
+SRCS :=	cd.c \
+		env.c \
+		main.c \
+		echo.c \
+		error.c \
+		quotes.c \
+		execute.c \
+		builtin.c \
+		expansions.c \
+		split_args.c \
+		
+
+# OBJ = main.o execute.o builtin.o cd.o echo.o error.o split_args.o env.o quotes.o \
+# expansions.o
+
+OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 .PHONY : all clean fclean re
 
 all : $(NAME)
 
-$(NAME) :
+$(OBJ_DIR):
+	@/bin/mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o:$(SRCS_DIR)/%.c
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -o $@ -c $<
+
+$(NAME) : $(OBJ_DIR) $(OBJ)
+	@echo "\\033[1;32mBuilding libft..\\033[0;39m"
 	@make -C libft/
-	@gcc -Wall -Wextra -Werror -c $(SRCS)
-	@gcc -Wall -Wextra -Werror -o $(NAME) $(SRCS) libft/libft.a
+	@echo "\\033[1;32mBuilding 21sh..\\033[0;39m"
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a -ltermcap
+	@echo "\\033[1;37mDONE\\033[0;39m"
+	@echo "\n\\033[1;37mLaunch ./21sh\\033[0;39m"
 
 clean : 
 	@rm -f $(OBJ)
@@ -34,5 +63,8 @@ clean :
 fclean : clean
 	@rm -f $(NAME)
 	@make fclean -C libft/
+
+# sh : $(OBJ_DIR) $(OBJ)
+# 	@
 
 re : fclean all
