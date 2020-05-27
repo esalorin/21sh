@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 18:26:53 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/27 18:45:06 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 19:27:05 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ static int	se_process_keypress(t_sh *sh)
 			ft_printf("You pressed space, * or -\n");
 		else if (sh->key == DEL || sh->key == BSPACE || sh->key == ESC)
 			ft_printf("You pressed DEL, backspace or ESC\n");
-		else
-			;
+		else if (sh->key == LEFT || sh->key == RIGHT || sh->key == UP || sh->key == DOWN)
+			ft_printf("You pressed one of the arrow keys\n");
+		else if (ft_isprint(sh->key))
+			ft_putchar(sh->key);
 	}
 	ft_printf("You pressed ENTER\n");
 	exit(1);

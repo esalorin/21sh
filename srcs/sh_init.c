@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 18:47:23 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/27 19:19:07 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 19:27:46 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	sh_configure_term_settings(t_sh *sh)
 		sh_exit("tcgetattr: failed to get current state. Exiting..\n");
 	sh->current_term_mode = sh->original_term_mode;
 	sh->current_term_mode.c_lflag &= ~(IEXTEN);
-	sh->current_term_mode.c_lflag &= ~(ICANON);
+	sh->current_term_mode.c_lflag &= ~(ICANON | ECHO);
 	sh->current_term_mode.c_iflag &= ~(IXON);
 	sh->current_term_mode.c_cc[VMIN] = 1;
 	sh->current_term_mode.c_cc[VTIME] = 0;
