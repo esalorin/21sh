@@ -37,6 +37,7 @@
 *.hex
 minishell
 exit.sh
+21sh
 
 # Debug files
 *.dSYM/

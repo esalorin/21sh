@@ -6,11 +6,11 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/27 16:05:43 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/27 16:13:41 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minishell
+NAME = 21sh
 CFLAGS = -Wall -Wextra -Werror
 CC = gcc
 
@@ -56,15 +56,19 @@ $(NAME) : $(OBJ_DIR) $(OBJ)
 	@echo "\\033[1;37mDONE\\033[0;39m"
 	@echo "\n\\033[1;37mLaunch ./21sh\\033[0;39m"
 
-clean : 
+clean :
+	@echo "\\033[1;31mCleaning shell object files..\\033[0;39m"
 	@rm -f $(OBJ)
+	@echo "\\033[1;31mCleaning libft object files..\\033[0;39m"
 	@make clean -C libft/
 
 fclean : clean
+	@echo "\n\\033[1;37mCleaning executables..\\033[0;39m"
 	@rm -f $(NAME)
 	@make fclean -C libft/
 
-# sh : $(OBJ_DIR) $(OBJ)
-# 	@
+sh : $(OBJ_DIR) $(OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a -ltermcap
+	@make clean
 
 re : fclean all
