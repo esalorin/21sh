@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 14:46:14 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 15:55:17 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:08:43 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh.h"
 
 static char	*home(char *arg, char *home)
 {

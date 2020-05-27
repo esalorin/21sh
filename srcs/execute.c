@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 17:59:23 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 15:55:13 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:10:00 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh.h"
 
 static char	*check_path(char *s1, char *s2)
 {
@@ -63,13 +63,13 @@ static int	sh_exec(t_sh *sh)
 	if (pid == 0)
 	{
 		if (execve(((path) ? path : sh->args[0]), sh->args, sh->env) == -1)
-			error("minishell: invalid command: ", sh->args[0]);
+			error("21sh: invalid command: ", sh->args[0]);
 		exit(1);
 	}
 	else if (pid > 0)
 		wait(NULL);
 	else
-		ft_putendl_fd("minishell: fork failed", 2);
+		ft_putendl_fd("21sh: fork failed", 2);
 	(path) ? ft_strdel(&path) : 0;
 	return (1);
 }

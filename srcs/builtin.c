@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:07:37 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 15:55:38 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:07:45 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh.h"
 
 char	**make_builtin(void)
 {

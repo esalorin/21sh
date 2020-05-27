@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 15:55:20 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:08:47 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh.h"
 
 static void	prompt(t_sh *sh)
 {

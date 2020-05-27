@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 14:27:24 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 15:55:29 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:09:12 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh.h"
 
 static char	**escapes(char **array)
 {

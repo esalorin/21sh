@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 19:58:21 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 15:54:48 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:08:30 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh.h"
 
 void		sh_unsetenv(t_sh *sh)
 {

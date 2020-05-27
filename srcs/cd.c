@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:27:17 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 15:52:46 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:09:36 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "sh.h"
 
 static void	modify_pwd(char **env, char *old, char *new)
 {
@@ -21,7 +21,7 @@ static void	modify_pwd(char **env, char *old, char *new)
 	j = 0;
 	if (!old || !new)
 	{
-		ft_putendl_fd("minishell: error while updating env", 2);
+		ft_putendl_fd("21sh: error while updating env", 2);
 		return ;
 	}
 	while (env[i] && (ft_strncmp("PWD=", env[i], 4) != 0))
