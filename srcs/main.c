@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 18:08:47 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:47:11 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void		sh_loop(t_sh *sh)
 	while (status)
 	{
 		prompt(sh);
-		get_next_line(0, &line);
+		sh_process_input(sh);
+		// get_next_line(0, &line);
 		sh->args = check_if_quotes(line);
 		expansions(sh);
 		status = sh_commands(sh);
@@ -61,6 +62,7 @@ int			main(int ac, char **av, char **env)
 
 	if (ac && av[0])
 	{
+		sh_init(sh);
 		sh.env = ft_arraydup(env);
 		// update_shell_env(av[0], &sh.env);
 		sh_loop(&sh);

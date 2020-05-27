@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 18:20:06 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/27 18:39:36 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct termios	t_termios;
 
 typedef struct	s_sh
 {
+	int			key;
 	char		**env;
 	char		**args;
 	t_termios	original_term_mode;
@@ -67,5 +68,14 @@ char			*checkhome(char **env);
 
 char			**make_builtin(void);
 char			**check_if_quotes(char *s);
+
+/*
+********************************************************************************
+**          FUNCTIONS THAT HAD BEEN ADDED AFTER MINISHELL                     **
+********************************************************************************
+*/
+
+void			sh_exit(const char *message);
+void			sh_process_input(t_sh *sh);
 
 #endif

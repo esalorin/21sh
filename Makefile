@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/27 16:31:32 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/27 18:39:52 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,10 +27,12 @@ SRCS :=	cd.c \
 		echo.c \
 		error.c \
 		quotes.c \
+		sh_exit.c \
 		execute.c \
 		builtin.c \
 		expansions.c \
 		split_args.c \
+		sh_process_input.c \
 		
 
 # OBJ = main.o execute.o builtin.o cd.o echo.o error.o split_args.o env.o quotes.o \
