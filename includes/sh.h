@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 19:17:05 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:30:41 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,16 @@
 # include <signal.h>
 # include <termios.h>
 
-# define BSLASH 92
-# define DQUOTE 34
-# define SQUOTE 39
+# define BSLASH 0x5C
+# define DQUOTE 0x22
+# define SQUOTE 0x27
 # define LEFT 0x445B1B
 # define RIGHT 0x435B1B
 # define DOWN 0x425B1B
 # define UP 0x415B1B
 # define ENTER 0xA
-# define ESC 0x1B
 # define DEL 0x7E335B1B
-# define SPACE 0x20
 # define BSPACE 0x7F
-# define ASTERISK 0x2A
-# define MINUS 0x2D
 
 typedef struct termios	t_termios;
 
