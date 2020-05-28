@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/28 14:30:41 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:41:39 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ char			**check_if_quotes(char *s);
 void			sh_exit(const char *message);
 void			sh_process_input(t_sh *sh);
 void			sh_init(t_sh *sh);
+void			sh_init_signal_handlers(void);
 
 #endif

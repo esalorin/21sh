@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 18:47:23 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/27 19:58:11 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:33:31 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ void		sh_init(t_sh *sh)
 	g_shell = sh;
 	sh_validate_terminal(sh);
 	sh_configure_term_settings(sh);
-	// sh_init_signal_handlers();
+	sh_init_signal_handlers();
 }

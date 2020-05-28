@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/27 19:18:07 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/28 14:40:49 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,6 @@ CC = gcc
 INC_DIR := ./includes
 SRCS_DIR := ./srcs
 OBJ_DIR := ./obj
-
-# SRCS = srcs/main.c srcs/execute.c srcs/builtin.c srcs/cd.c srcs/echo.c srcs/error.c \
-# srcs/split_args.c srcs/env.c srcs/quotes.c srcs/expansions.c
 
 SRCS :=	cd.c \
 		env.c \
@@ -34,10 +31,7 @@ SRCS :=	cd.c \
 		expansions.c \
 		split_args.c \
 		sh_process_input.c \
-		
-
-# OBJ = main.o execute.o builtin.o cd.o echo.o error.o split_args.o env.o quotes.o \
-# expansions.o
+		sh_init_signal_handlers.c
 
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
