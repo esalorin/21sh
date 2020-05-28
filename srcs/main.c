@@ -6,36 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/27 19:15:53 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/28 17:49:09 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
-
-static void	prompt(t_sh *sh)
-{
-	char	*pwd;
-	char	*home;
-	char	*dir;
-	int		i;
-
-	i = 0;
-	pwd = getcwd(NULL, 1);
-	if (pwd)
-	{
-		dir = ft_strrchr(pwd, '/');
-		if ((home = checkhome(sh->env)))
-		{
-			if (ft_strcmp(pwd, home) == 0)
-				dir = "~";
-		}
-		ft_printf(CBLUEB"%s%s $> %s", (ft_strlen(dir) > 1) ? ++dir : dir,
-		CMAGENTAB, CRESET);
-		ft_strdel(&pwd);
-	}
-	else
-		ft_printf(CMAGENTAB"$> %s", CRESET);
-}
 
 void		sh_loop(t_sh *sh)
 {
@@ -45,7 +20,7 @@ void		sh_loop(t_sh *sh)
 	status = 1;
 	while (status)
 	{
-		prompt(sh);
+		sh_prompt(sh);
 		sh_process_input(sh);
 		// get_next_line(0, &line);
 		sh->args = check_if_quotes(line);
@@ -59,11 +34,13 @@ void		sh_loop(t_sh *sh)
 int			main(int ac, char **av, char **env)
 {
 	t_sh	sh;
+	t_c		tc;
 
 	if (ac && av[0])
 	{
-		sh_init(&sh);
+		sh_init(&sh, &tc);
 		sh.env = ft_arraydup(env);
+		sh_clear_screen();
 		// update_shell_env(av[0], &sh.env);
 		sh_loop(&sh);
 		ft_arraydel(sh.env);

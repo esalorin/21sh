@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/28 14:40:49 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/28 17:16:36 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,11 @@ SRCS :=	cd.c \
 		sh_exit.c \
 		execute.c \
 		builtin.c \
+		sh_prompt.c \
 		expansions.c \
 		split_args.c \
+		sh_move_cursor.c \
+		sh_clear_screen.c \
 		sh_process_input.c \
 		sh_init_signal_handlers.c
 

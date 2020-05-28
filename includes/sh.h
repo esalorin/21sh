@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/28 14:41:39 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/28 17:31:46 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@
 
 typedef struct termios	t_termios;
 
+typedef struct	s_cursor
+{
+	int		l_constraint;
+	int		r_constraint;
+	int		col;
+	int		row;
+}				t_c;
+
 typedef struct	s_sh
 {
 	int			key;
@@ -40,6 +48,7 @@ typedef struct	s_sh
 	int			file_fd;
 	char		**env;
 	char		**args;
+	t_c			*cursor;
 	t_termios	original_term_mode;
 	t_termios	current_term_mode;
 }				t_sh;
@@ -75,7 +84,10 @@ char			**check_if_quotes(char *s);
 
 void			sh_exit(const char *message);
 void			sh_process_input(t_sh *sh);
-void			sh_init(t_sh *sh);
+void			sh_init(t_sh *sh, t_c *tc);
 void			sh_init_signal_handlers(void);
+int				sh_move_cursor(t_sh *sh);
+void			sh_clear_screen(void);
+void			sh_prompt(t_sh *sh);
 
 #endif

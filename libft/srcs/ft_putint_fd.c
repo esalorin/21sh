@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putint_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 18:47:51 by esalorin          #+#    #+#             */
-/*   Updated: 2020/05/28 17:48:10 by jrignell         ###   ########.fr       */
+/*   Created: 2020/05/28 15:36:50 by jrignell          #+#    #+#             */
+/*   Updated: 2020/05/28 15:37:02 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int		ft_putint_fd(int c)
 {
-	size_t			i;
-	unsigned char	*s;
-
-	s = (unsigned char*)b;
-	i = 0;
-	while (s && i < len)
-	{
-		s[i] = c;
-		i++;
-	}
-	return (b);
+	return (write(STDERR_FILENO, &c, 1));
 }

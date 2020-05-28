@@ -6,13 +6,19 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 18:47:23 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/28 14:33:31 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/28 17:49:24 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sh.h"
 #include <fcntl.h>
 #include <term.h>
+
+static void	sh_assign_values(t_sh *sh, t_c *tc)
+{
+	g_shell = sh;
+	sh->cursor = tc;
+}
 
 static void	sh_validate_terminal(t_sh *sh)
 {
@@ -47,10 +53,11 @@ static void	sh_configure_term_settings(t_sh *sh)
 		sh_exit("tcsetattr(): failed to make requested changes. Exiting..\n");
 }
 
-void		sh_init(t_sh *sh)
+void		sh_init(t_sh *sh, t_c *tc)
 {
 	ft_bzero(sh, sizeof(t_sh));
-	g_shell = sh;
+	ft_bzero(tc, sizeof(t_c));
+	sh_assign_values(sh, tc);
 	sh_validate_terminal(sh);
 	sh_configure_term_settings(sh);
 	sh_init_signal_handlers();

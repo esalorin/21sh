@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   sh_clear_screen.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 18:47:51 by esalorin          #+#    #+#             */
-/*   Updated: 2020/05/28 17:48:10 by jrignell         ###   ########.fr       */
+/*   Created: 2020/05/28 16:17:18 by jrignell          #+#    #+#             */
+/*   Updated: 2020/05/28 16:18:29 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <term.h>
+#include "sh.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	sh_clear_screen(void)
 {
-	size_t			i;
-	unsigned char	*s;
-
-	s = (unsigned char*)b;
-	i = 0;
-	while (s && i < len)
-	{
-		s[i] = c;
-		i++;
-	}
-	return (b);
+	tputs(tgetstr("cl", NULL), 1, ft_putint_fd);
 }

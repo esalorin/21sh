@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:53:07 by esalorin          #+#    #+#             */
-/*   Updated: 2020/05/27 13:40:07 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/05/28 15:38:18 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char				**ft_array_merge(char **ar1, char **ar2);
 char				**ft_arraydup(char **array);
 char				**ft_arrayrem(char **array, int index);
 
+int					ft_putint_fd(int c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_isalpha(int c);
