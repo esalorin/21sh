@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/28 17:31:46 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/20 14:17:25 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define RIGHT 0x435B1B
 # define DOWN 0x425B1B
 # define UP 0x415B1B
-# define ENTER 0xA
+# define ENTER 0xD
 # define DEL 0x7E335B1B
 # define BSPACE 0x7F
 
@@ -35,9 +35,9 @@ typedef struct termios	t_termios;
 
 typedef struct	s_cursor
 {
-	int		l_constraint;
-	int		r_constraint;
-	int		col;
+	size_t	l_constraint;
+	size_t	r_constraint;
+	size_t	col;
 	int		row;
 }				t_c;
 
@@ -48,6 +48,7 @@ typedef struct	s_sh
 	int			file_fd;
 	char		**env;
 	char		**args;
+	char		*buffer;
 	t_c			*cursor;
 	t_termios	original_term_mode;
 	t_termios	current_term_mode;
@@ -87,7 +88,9 @@ void			sh_process_input(t_sh *sh);
 void			sh_init(t_sh *sh, t_c *tc);
 void			sh_init_signal_handlers(void);
 int				sh_move_cursor(t_sh *sh);
+int				sh_save_to_buffer(t_sh *sh);
 void			sh_clear_screen(void);
 void			sh_prompt(t_sh *sh);
+
 
 #endif

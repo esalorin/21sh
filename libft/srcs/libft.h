@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:53:07 by esalorin          #+#    #+#             */
-/*   Updated: 2020/05/28 15:38:18 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/20 13:30:55 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define BUFF_SIZE 100
+# define BUFF_SIZE 32
 
 # define CBLACK "\x1B[30m"
 # define CBLACKB "\x1B[1;30m"

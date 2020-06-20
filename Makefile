@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/28 17:16:36 by jrignell         ###   ########.fr        #
+#    Updated: 2020/06/01 13:24:22 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS :=	cd.c \
 		sh_move_cursor.c \
 		sh_clear_screen.c \
 		sh_process_input.c \
+		sh_save_to_buffer.c \
 		sh_init_signal_handlers.c
 
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
@@ -71,7 +72,7 @@ sh : $(OBJ_DIR) $(OBJ)
 	@echo "\\033[1;33mBuilding project..\\033[0;39m"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/libft.a -ltermcap
 	@echo "\\033[1;32mDONE\\033[0;39m"
-	@echo "\n\\033[1;37mLaunch ./21sh\\033[0;39m"
 	@make clean
+	@echo "\n\\033[1;37mLaunch ./21sh\\033[0;39m"
 
 re : fclean all

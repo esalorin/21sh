@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 18:47:23 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/28 17:49:24 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/28 20:43:40 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	sh_configure_term_settings(t_sh *sh)
 	sh->current_term_mode = sh->original_term_mode;
 	sh->current_term_mode.c_lflag &= ~(IEXTEN);
 	sh->current_term_mode.c_lflag &= ~(ICANON | ECHO);
-	sh->current_term_mode.c_iflag &= ~(IXON);
+	sh->current_term_mode.c_iflag &= ~(IXON | ICRNL);
 	sh->current_term_mode.c_cc[VMIN] = 1;
 	sh->current_term_mode.c_cc[VTIME] = 0;
 	if (tcsetattr(sh->term_fd, TCSANOW, &sh->current_term_mode) == -1)
