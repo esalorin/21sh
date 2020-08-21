@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
+#    By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/22 15:38:44 by esalorin          #+#    #+#              #
-#    Updated: 2020/05/28 15:41:38 by jrignell         ###   ########.fr        #
+#    Updated: 2020/08/21 14:23:24 by esalorin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = srcs/ft_printf.c srcs/ft_print_csp.c srcs/ft_print_dioux.c srcs/ft_print_flags.c \
-srcs/ft_dioux_flags.c srcs/ft_print_double.c srcs/ft_check_dioux.c srcs/ft_memset.c \
+SRC = srcs/ft_printf.c srcs/ft_dprintf.c srcs/print_csp.c srcs/print_dioux.c srcs/printf_flags.c \
+srcs/dioux_flags.c srcs/print_double.c srcs/check_dioux.c srcs/ft_memset.c srcs/skip.c \
 srcs/ft_bzero.c srcs/ft_memcpy.c srcs/ft_memccpy.c srcs/ft_memmove.c srcs/ft_memchr.c \
 srcs/ft_memcmp.c srcs/ft_strlen.c srcs/ft_strdup.c srcs/ft_strcpy.c srcs/ft_strncat.c \
 srcs/ft_strlcat.c srcs/ft_strrchr.c srcs/ft_strstr.c srcs/ft_strnstr.c srcs/ft_strcmp.c \
@@ -28,10 +28,11 @@ srcs/ft_putnbr_fd.c srcs/ft_strjoin.c srcs/ft_lstnew.c srcs/ft_lstdelone.c srcs/
 srcs/ft_itoa_base.c srcs/ft_atoi_base.c srcs/ft_itoa_unsigned.c srcs/ft_ftoa.c srcs/ft_swap.c \
 srcs/get_next_line.c srcs/ft_chrcount.c srcs/ft_array_push.c srcs/ft_arraynew.c srcs/ft_arraydel.c \
 srcs/ft_array_merge.c srcs/ft_putarray.c srcs/ft_strfound.c srcs/ft_arraydup.c srcs/ft_arrayrem.c \
-srcs/ft_joindel.c srcs/ft_rmchr.c srcs/ft_rmescapes.c srcs/ft_arraylen.c srcs/ft_putint_fd.c
+srcs/ft_joindel.c srcs/ft_rmchr.c srcs/ft_rmescapes.c srcs/ft_arraylen.c srcs/ft_putint_fd.c \
+srcs/check_precision.c srcs/check_width.c srcs/make_struct.c srcs/check_flags.c srcs/conversion.c \
 
-OBJ = ft_printf.o ft_print_csp.o ft_print_dioux.o ft_print_flags.o ft_dioux_flags.o ft_nbrlen.o\
-ft_print_double.o ft_check_dioux.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
+OBJ = ft_printf.o ft_dprintf.o print_csp.o print_dioux.o printf_flags.o dioux_flags.o ft_nbrlen.o\
+print_double.o check_dioux.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
 ft_memchr.o ft_memcmp.o ft_strlen.o ft_strdup.o ft_strcpy.o ft_strncat.o ft_strlcat.o \
 ft_strrchr.o ft_strstr.o ft_strnstr.o ft_strcmp.o ft_strncmp.o ft_atoi.o ft_isalpha.o \
 ft_isdigit.o ft_strcat.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o \
@@ -42,7 +43,8 @@ ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_strjoin.o ft_ls
 ft_lstdelone.o ft_itoa_base.o ft_atoi_base.o ft_itoa_unsigned.o ft_ftoa.o ft_strswap.o ft_swap.o \
 get_next_line.o ft_chrcount.o ft_array_push.o ft_arraynew.o ft_arraydel.o ft_array_merge.o \
 ft_putarray.o ft_strfound.o ft_arraydup.o ft_arrayrem.o ft_joindel.o ft_rmchr.o ft_rmescapes.o \
-ft_arraylen.o ft_putint_fd.o
+ft_arraylen.o ft_putint_fd.o skip.o check_precision.o check_width.o check_flags.o conversion.o \
+make_struct.o \
 
 INC = srcs/libft.h
 

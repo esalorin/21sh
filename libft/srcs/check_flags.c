@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   check_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/22 16:33:22 by esalorin          #+#    #+#             */
-/*   Updated: 2020/08/21 14:43:24 by esalorin         ###   ########.fr       */
+/*   Created: 2020/06/16 20:06:28 by eenasalorin       #+#    #+#             */
+/*   Updated: 2020/08/21 14:43:08 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_printf(const char *format, ...)
+void		check_flags(t_data *d)
 {
-	va_list ap;
-	int		i;
-	int		ret;
-	int		skip;
-	int		temp;
+	int i;
 
-	skip = 0;
 	i = 0;
-	ret = 0;
-	va_start(ap, format);
-	while (format[i] != '\0')
+	while (d->sub[i] && d->sub[i] != '.' && (d->sub[i] < '1' || d->sub[i] > '9'))
 	{
-		if (format[i] == '%')
-		{
-			temp = (format[++i]) ? ft_skip(&format[i]) : 0;
-			ret = ret + make_struct(format, 1, i, ap);
-			i = i + temp;
-			skip = skip + 1 + temp;
-		}
-		else if (format[i])
-			ft_putchar(format[i++]);
+		if (d->sub[i] == '#')
+			d->hash = 1;
+		else if (d->sub[i] == '0')
+			d->zero = 1;
+		else if (d->sub[i] == '+')
+			d->plus = 1;
+		else if (d->sub[i] == '-')
+			d->minus = 1;
+		else if (d->sub[i] == ' ')
+			d->space = 1;
+		i++;
 	}
-	va_end(ap);
-	return (((ret + i) - skip));
 }

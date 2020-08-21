@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_dioux.c                                   :+:      :+:    :+:   */
+/*   check_dioux.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 18:46:16 by esalorin          #+#    #+#             */
-/*   Updated: 2020/01/27 16:09:30 by esalorin         ###   ########.fr       */
+/*   Updated: 2020/08/21 14:48:39 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_check_dioux(char *s, int *m)
+static int	ft_check_dioux(char *s, t_data d)
 {
 	int res;
 	int	i;
 
 	i = 0;
 	res = ft_strlen(s);
-	if (m[3] == 1)
-		ft_putstr(s);
-	if (m[1] == 1 && m[3] == -1 && m[6] == -1)
+	if (d.minus)
+		ft_putstr_fd(s, d.fd);
+	if (d.zero && !d.minus && d.prec == -1)
 	{
 		if (s[i] == ' ' || s[i] == '+' || s[i] == '-' || s[1] == 'x' || s[1]
 		== 'X')
-			ft_putchar(s[i++]);
-		(s[1] == 'x' || s[1] == 'X') ? ft_putchar(s[i++]) : 1;
-		while (m[5] > res++)
-			write(1, "0", 1);
+			ft_putchar_fd(s[i++], d.fd);
+		(s[1] == 'x' || s[1] == 'X') ? ft_putchar_fd(s[i++], d.fd) : 1;
+		while (d.width > res++)
+			write(d.fd, "0", 1);
 	}
-	if (m[1] == -1 || m[3] == 1 || m[6] > 0)
+	if (!d.zero || d.minus || d.prec > 0)
 	{
-		while (m[5] > res++)
-			write(1, " ", 1);
+		while (d.width > res++)
+			write(d.fd, " ", 1);
 	}
-	if (m[3] == -1)
-		ft_putstr(&s[i]);
+	if (!d.minus)
+		ft_putstr_fd(&s[i], d.fd);
 	free(s);
 	return (res - 1);
 }
@@ -55,7 +55,7 @@ static char	*ft_maketemp(int n, int i)
 	return (s);
 }
 
-int			ft_check_oux(char *s, char c, int *m)
+int			check_oux(char *s, t_data d)
 {
 	char	*s1;
 	char	*s2;
@@ -64,27 +64,27 @@ int			ft_check_oux(char *s, char c, int *m)
 
 	s1 = NULL;
 	s2 = NULL;
-	if (m[6] == 0 && s[0] == '0')
+	if (!d.prec && s[0] == '0')
 		s[0] = '\0';
-	if (m[0] == 1 && c == 'o' && s[0] != '0')
+	if (d.hash && d.conv == 'o' && s[0] != '0')
 		s1 = ft_strjoin("0", s);
 	s1 = (s1 == NULL) ? ft_strdup(s) : s1;
-	if (m[6] > (len = ft_strlen(s1)))
+	if (d.prec > (len = ft_strlen(s1)))
 	{
-		temp = ft_maketemp(m[6] - len, 0);
+		temp = ft_maketemp(d.prec - len, 0);
 		s2 = ft_strjoin(temp, s1);
 		ft_strdel(&temp);
 	}
 	s2 = (s2 == NULL) ? ft_strdup(s1) : s2;
-	if (m[0] == 1 && (c == 'x' || c == 'X') && s1[0] != '0' && s1[0] != '\0')
-		temp = ft_strjoin(((c == 'x') ? "0x" : "0X"), s2);
+	if (d.hash && (d.conv == 'x' || d.conv == 'X') && s1[0] != '0' && s1[0] != '\0')
+		temp = ft_strjoin(((d.conv == 'x') ? "0x" : "0X"), s2);
 	temp = (temp == NULL) ? ft_strdup(s2) : temp;
 	free(s1);
 	free(s2);
-	return (ft_check_dioux(temp, m));
+	return (ft_check_dioux(temp, d));
 }
 
-int			ft_check_di(char *s, int *m)
+int			check_di(char *s, t_data d)
 {
 	char	*s1;
 	char	*temp;
@@ -92,22 +92,22 @@ int			ft_check_di(char *s, int *m)
 	int		i;
 
 	s1 = NULL;
-	if (m[6] == 0 && s[0] == '0')
+	if (!d.prec && s[0] == '0')
 		s[0] = '\0';
 	i = (s[0] == '-') ? 1 : 0;
-	if (m[6] > (len = ft_strlen(&s[i])))
+	if (d.prec > (len = ft_strlen(&s[i])))
 	{
-		temp = ft_maketemp(m[6] - len, i);
+		temp = ft_maketemp(d.prec - len, i);
 		s1 = ft_strjoin(temp, &s[i]);
 		free(temp);
 	}
 	temp = NULL;
 	s1 = (s1 == NULL) ? ft_strdup(s) : s1;
-	if (m[2] == 1 && s[0] != '-')
+	if (d.plus && s[0] != '-')
 		temp = ft_strjoin("+", s1);
-	if (m[4] == 1 && m[2] == -1 && s[0] != '-')
+	if (d.space && !d.plus && s[0] != '-')
 		temp = ft_strjoin(" ", s1);
 	temp = (temp == NULL) ? ft_strdup(s1) : temp;
 	free(s1);
-	return (ft_check_dioux(temp, m));
+	return (ft_check_dioux(temp, d));
 }

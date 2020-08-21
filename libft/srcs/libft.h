@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:53:07 by esalorin          #+#    #+#             */
-/*   Updated: 2020/06/20 13:30:55 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/08/21 14:47:03 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,24 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct	s_data
+{
+	int			prec;
+	int			width;
+	int			zero;
+	int			plus;
+	int			hash;
+	int			minus;
+	int			space;
+	int			fd;
+	int			l;
+	int			h;
+	int			ll;
+	int			hh;
+	char		conv;
+	char		*sub;
+}				t_data;
 
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
@@ -103,25 +121,30 @@ int					ft_atoi(const char *str);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
-int					ft_printf(const char *format, ...);
-int					ft_print_csp(char c, va_list ap, int *m, int flag);
-int					ft_print_dioux(char c, va_list ap, int f, int *m);
-int					ft_print_flags(char *sub, va_list ap);
-int					ft_dioux_flags(char *s, int i, va_list ap);
-int					ft_print_double(va_list ap, int p, int len, int *m);
-int					ft_double_flags(char *s, int i, va_list ap);
-int					ft_csp_flags(char *s, int l, va_list ap);
-int					ft_check_min(char *s);
 int					get_next_line(const int fd, char **line);
-int					ft_check_precision(char *s, int i);
-int					ft_check_di(char *s, int *m);
-int					ft_check_oux(char *s, char c, int *m);
 int					ft_nbrlen(long long n);
 int					ft_chrcount(const char *s, int c);
 int					ft_strfound(const char *haystack, const char *needle);
+int					conversion(t_data d, va_list ap);
+int					ft_printf(const char *format, ...);
+int					ft_dprintf(int fd, const char *format, ...);
+int					print_csp(t_data d, va_list ap);
+int					print_dioux(t_data d, va_list ap);
+int					printf_flags(t_data d, va_list ap);
+int					dioux_flags(t_data d, int i, va_list ap);
+int					print_double(t_data d, va_list ap);
+int					double_flags(t_data d, int i, va_list ap);
+int					csp_flags(t_data d, int l, va_list ap);
+int					check_di(char *s, t_data d);
+int					check_oux(char *s, t_data d);
+int					ft_skip(const char *f);
+int					make_struct(const char *f, int fd, int i, va_list ap);
 
 long long			ft_atoi_base(const char *nbr, unsigned int base);
 
+void				check_width(t_data *d);
+void				check_precision(t_data *d, int i);
+void				check_flags(t_data *d);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putnbr(int n);
@@ -137,7 +160,6 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_bzero(void *s, size_t n);
 void				ft_memdel(void **ap);
 void				ft_lstdelone(t_list **alst, void(*del)(void*, size_t));
-void				ft_check_flags(char *s, int *m);
 void				ft_strswap(char **s1, char **s2);
 void				ft_swap(long long *a, long long *b);
 void				ft_arraydel(char **array);
