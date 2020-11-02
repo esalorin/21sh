@@ -49,8 +49,8 @@ $> ./21sh
 | <kbd>down</kbd> | Navigate to newer command in history. |
 | <kbd>home</kbd> | Move cursor to the beginning of current command. |
 | <kbd>end</kbd> | Move cursor to the ending of current command. |
-| <kbd>shift+right</kbd> | Begin selecting characters to left. |
-| <kbd>shift+left</kbd> | Begin selecting characters to right. |
+| <kbd>shift+right</kbd> | Begin selecting characters to right. |
+| <kbd>shift+left</kbd> | Begin selecting characters to left. |
 | <kbd>option+x</kbd> | Cut the selected part of terminal, and add it to the internal clipboard buffer. |
 | <kbd>option+c</kbd> | Copy the selected part of terminal, and add it to the internal clipboard buffer. |
 | <kbd>option+v</kbd> | Paste contents of the internal clipboad to the current command. |
