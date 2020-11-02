@@ -53,4 +53,4 @@ $> ./21sh
 | <kbd>shift+left</kbd> | Begin selecting characters to left. |
 | <kbd>option+x</kbd> | Cut the selected part of terminal, and add it to the internal clipboard buffer. |
 | <kbd>option+c</kbd> | Copy the selected part of terminal, and add it to the internal clipboard buffer. |
-| <kbd>option+v</kbd> | Paste contents of the internal clipboad to the current command. |
+| <kbd>option+v</kbd> | Paste contents of the internal clipboard to the current command. |
