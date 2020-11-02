@@ -41,14 +41,16 @@ $> ./21sh
 | ------------- | ------------- |
 | <kbd>right</kbd> | Move cursor right. |
 | <kbd>left</kbd> | Move cursor left. |
-| <kbd>ctrl+right</kbd> | Move cursor to the beginning of a word. |
-| <kbd>ctrl+left</kbd> | Move cursor to the ending of a word. |
-| <kbd>ctrl+up</kbd> | Move cursor to the upper line. |
-| <kbd>ctrl+down</kbd> | Move cursor to the lower line. |
+| <kbd>option+right</kbd> | Move cursor to the beginning of a word. |
+| <kbd>option+left</kbd> | Move cursor to the ending of a word. |
+| <kbd>option+up</kbd> | Move cursor to the upper line. |
+| <kbd>option+down</kbd> | Move cursor to the lower line. |
 | <kbd>up</kbd> | Navigate to older command in history. |
 | <kbd>down</kbd> | Navigate to newer command in history. |
 | <kbd>home</kbd> | Move cursor to the beginning of current command. |
 | <kbd>end</kbd> | Move cursor to the ending of current command. |
-| <kbd>ctrl+k</kbd> | Cut the part of the current command *after* the cursor, and add it to the internal clipboard buffer. |
-| <kbd>ctrl+u</kbd> | Cut the part of the current command *before* the cursor, and add it to the internal clipboard buffer. |
-| <kbd>ctrl+p</kbd> | Paste contents of the internal clipboad to the current command. |
+| <kbd>shift+right</kbd> | Begin selecting characters to left. |
+| <kbd>shift+left</kbd> | Begin selecting characters to right. |
+| <kbd>option+x</kbd> | Cut the selected part of terminal, and add it to the internal clipboard buffer. |
+| <kbd>option+c</kbd> | Copy the selected part of terminal, and add it to the internal clipboard buffer. |
+| <kbd>option+v</kbd> | Paste contents of the internal clipboad to the current command. |
